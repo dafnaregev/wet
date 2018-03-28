@@ -1,0 +1,163 @@
+init 2 15 10
+#
+#INVALID_INPUT - negative trainingGroupID
+addTrainingGroup -50
+#
+#FAILURE - trainingGroupID already exists
+addTrainingGroup 15
+addTrainingGroup 10
+#
+#INVALID_INPUT - negative gladiatorID
+addGladiator -1 84 2
+addGladiator 1 -84 2
+addGladiator 1 84 -2
+#
+#SUCCESS
+addGladiator 1001 2 10
+addGladiator 1501 2 15
+#
+#FAILURE - gladiatorID already exists
+addGladiator 1001 97 15
+#
+#FAILURE - trainingGroup doesn't exist
+addGladiator 22 22 22
+#
+#INVALID_INPUT - zero/negative parameters
+trainingGroupFight 10 15 0 5
+trainingGroupFight 10 15 5 0
+trainingGroupFight 10 -1 5 5
+trainingGroupFight -1 15 1 1
+#
+#FAILURE - trainingGroup doesn't exist
+trainingGroupFight 2 15 1 1
+trainingGroupFight 10 2 1 1
+#
+#FAILURE - not enough gladiators in group
+trainingGroupFight 10 15 1 5
+trainingGroupFight 10 15 5 1
+#
+#FAILURE - trainingGroup doesn't exist
+trainingGroupFight 15 15 1 1
+#
+#SUCCESS
+trainingGroupFight 10 15 1 1
+#
+#SUCCESS - still ok to add gladiator to a conquered team
+addGladiator 1502 10000 15
+#
+#FAILURE - trainingGroup 15 are already 
+trainingGroupFight 10 15 1 1
+#
+#SUCCESS - Min is 10
+getMinTrainingGroup
+#
+#SUCCESS - we need more groups!
+addTrainingGroup 1
+addTrainingGroup 2
+addTrainingGroup 3
+addTrainingGroup 4
+addTrainingGroup 5
+addTrainingGroup 6
+addTrainingGroup 7
+addTrainingGroup 8
+addTrainingGroup 9
+addTrainingGroup 11
+addTrainingGroup 12
+addTrainingGroup 13
+addTrainingGroup 14
+addTrainingGroup 16
+#
+#SUCCESS
+addGladiator 101 12 1
+addGladiator 201 3 2
+addGladiator 301 20 3
+addGladiator 302 1 3
+addGladiator 401 1 4
+addGladiator 402 4 4
+addGladiator 403 2 4
+addGladiator 404 3 4
+addGladiator 501 5 5
+addGladiator 601 16 6
+addGladiator 701 13 7
+addGladiator 801 1 8
+addGladiator 802 1 8
+addGladiator 803 1 8
+addGladiator 804 1 8
+addGladiator 805 1 8
+addGladiator 806 1 8
+addGladiator 807 1 8
+addGladiator 808 1 8
+addGladiator 901 11 9
+addGladiator 902 13 9
+addGladiator 903 2 9
+addGladiator 904 5 9
+addGladiator 905 7 9
+addGladiator 906 6 9
+addGladiator 1101 0 11
+addGladiator 1201 111 12
+addGladiator 1301 0 13
+addGladiator 1401 21 14
+addGladiator 1601 6 16
+#
+#SUCCESS - Min is 1
+getMinTrainingGroup
+#
+#SUCCESS
+trainingGroupFight 2 8 1 5
+trainingGroupFight 7 4 1 4
+trainingGroupFight 1 5 1 1
+trainingGroupFight 3 14 2 1
+trainingGroupFight 11 13 1 1
+trainingGroupFight 16 6 1 1
+trainingGroupFight 9 12 4 1
+#
+#SUCCESS - Min is 1
+getMinTrainingGroup
+#
+#SUCCESS
+trainingGroupFight 10 8 1 1
+trainingGroupFight 7 1 1 1
+trainingGroupFight 11 3 1 2
+trainingGroupFight 6 12 1 1
+#
+#SUCCESS - Min is 3
+getMinTrainingGroup
+#
+#SUCCESS
+trainingGroupFight 10 7 1 1
+trainingGroupFight 3 12 1 1
+#
+#SUCCESS - Min is 7
+getMinTrainingGroup
+#
+#SUCCESS
+addGladiator 702 12 7
+addGladiator 703 15 7
+addGladiator 704 18 7
+addGladiator 705 22 7
+addGladiator 706 5 7
+addGladiator 707 17 7
+addGladiator 708 27 7
+addGladiator 709 20 7
+addGladiator 710 2 7
+addGladiator 711 3 7
+addGladiator 712 4 7
+addGladiator 1202 1 12
+addGladiator 1203 5 12
+addGladiator 1204 9 12
+addGladiator 1205 7 12
+addGladiator 1206 3 12
+addGladiator 1207 2 12
+addGladiator 1208 6 12
+addGladiator 1209 1 12
+#
+#SUCCESS
+trainingGroupFight 12 7 5 8
+#
+#FAILURE - trainingGroup 12 got conquered
+trainingGroupFight 7 12 2 2
+#
+#SUCCESS - Min is 7
+getMinTrainingGroup
+#
+quit
